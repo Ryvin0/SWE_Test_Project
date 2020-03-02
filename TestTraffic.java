@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 
-
+// testing to see if this comment is added
 /*  This test class will test out the verification test suites included in our Word Document 
  * 
  */
