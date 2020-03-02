@@ -9,6 +9,7 @@ public class Traffic
     public List<Traffic> trafficLocations;
     public File file;
 
+
     //constructors
     public Traffic(String location, List<Traffic> tlocations)
     {
@@ -34,6 +35,8 @@ public class Traffic
     {
         return location;
     }
+
+
 
 
     /*
