@@ -70,9 +70,9 @@ public class TestTrafficClass
     //Test to make sure trafficLocations contains searched location 
     @Test
     public void checkLocations() 
-    { 
-    	
-    	
+    {
+
+
     }
     
     //Test to make validate size of incidents 
@@ -82,7 +82,98 @@ public class TestTrafficClass
     	
     }
     
-    
+    // This is the start of the R2 Functionality test suite
+
+    @Test
+    public void testTrafficLocationsContainSearchedLocation() //This test to see if the correct location is returned when searched in the database
+    {
+
+        Traffic t = new Traffic();
+        t.setLocation("Atlanta");
+        t.connect();
+        t.retrieveTrafficInfo("Atlanta");
+        String loc = t.getLocation();
+        assertEquals("Atlanta", loc);
+    }
+    @Test
+    public void testSizeofListIncidents() //This test the get Method of getIncidents returning a positive number.
+    {
+
+        TrafficData t = new TrafficData();
+        t.connect();
+        t.retrieveTrafficInfo("Atlanta");
+        int incidents = t.getIncidents()
+        assertEquals(1, incidents);
+
+
+    }
+    @Test
+    public void testValueofStringLocationisValid() //This test that a valid string is returned from getLocation
+    {
+
+
+        Traffic t = new Traffic();
+        t.connect();
+        t.retrieveTrafficInfo("Atlanta");
+        String locationName = t.getLocation()
+        assertEquals("Atlanta", locationName);
+
+    }
+    @Test
+    public void testValueofStringWeatherisValid() //This test that the weather string is returned correctly
+    {
+
+        TrafficData t = new TrafficData();
+        t.connect();
+        t.retrieveTrafficInfo("Atlanta");
+        String Weather = t.getWeather()
+        assertEquals("Sunny", Weather);
+
+
+    }
+    @Test
+    public void testValueofStringDateisValid() //This test that the date is returned in correct format
+    {
+
+        TrafficData t = new TrafficData();
+        t.connect();
+        t.retrieveTrafficInfo("Atlanta");
+        LocalDate date = t.getDate()
+        assertEquals(LocalDate = new(2020,03,02), date);
+
+    }
+    @Test
+    public void testOutputisInTextFile() //This test that the output file is of correct type
+    {
+        TrafficData t = new TrafficData();
+        t.connect();
+        t.retrieveTrafficInfo("Atlanta");
+        String FileName = t.file.getName();
+        int length = FileName.length();
+        int i = FileName.Lenth-1;
+        String Last3 = FileName.substring(i, i-3);
+        String wanted = "cvs";
+
+        assertEquals(Last3, wanted);
+
+
+    }
+    @Test
+    public void testFileContainsData()  //This test that the file recieved has data within it
+    {
+        TrafficData t = new TrafficData();
+        t.connect();
+        t.retrieveTrafficInfo("Atlanta");
+        int File = t.file.length();
+        boolean Correct = false;
+        if(File > 0 )
+        {
+            Correct = true;
+        }
+        assertEquals(true, Correct);
+
+
+    }
     
     
 }

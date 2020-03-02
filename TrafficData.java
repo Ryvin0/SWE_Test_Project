@@ -30,6 +30,7 @@ public class TrafficData extends Traffic
     /*
         Getters and setters
      */
+    public int getIncidents(){return incidents.length;}
 
     public LocalTime getTime()
     {
