@@ -1,6 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.lang.*;
+import java.util.List;
 
 /*  This test class will test out the Functionality test suites included in our Word Document 
  * 
@@ -8,6 +9,9 @@ import java.lang.*;
 
 public class TestTrafficClass
 {
+    //Global variables
+    public List<Traffic> loc;
+    
     //Test the connect() method of Traffic class
     @Test
     public void testConnect()
@@ -32,18 +36,34 @@ public class TestTrafficClass
     public void testFileExist_notDB()
     {
         Traffic t = new Traffic();
+        t.setLocation("Atlanta");
         t.connect();
-        boolean actual = t.fileExists("Cary"); //Cary is a low profile city in North Carolina that may not be in a traffic database
+        boolean actual = t.fileExists();
         assertEquals(false, actual);
+    }
+    
+    //Test to see if File object is not Null
+    @Test
+    public void testFileIsNotNull()
+    {
+        Traffic t = new Traffic();
+        t.setLocation("Atlanta");
+        t.connect();
+        boolean actual = t.isFileNull();
+        assertEquals(true, actual);
     }
 
     //Test retrieveTrafficInfo method
     @Test
     public void testRetrieveTrafficInfo()
     {
+        List<Traffic> test;
         Traffic t = new Traffic();
+        t.setLocation("Atlanta");
         t.connect();
-        //Having trouble figuring out how to test to see if this method worked
+        loc = t.retrieveTrafficInfo();
+        test = t.retrieveTrafficInfo();
+        assertTrue(test.equals(loc));
     }
     
     
