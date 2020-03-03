@@ -46,7 +46,9 @@ public class TrafficData extends Traffic
     {
         time = LocalTime.now();
     }
-
+    
+    public int getIncidents(){return incidents.size();}
+  
     public LocalDate getDate()
     {
         return date;
