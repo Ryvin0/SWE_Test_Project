@@ -12,13 +12,13 @@ public class TrafficData extends Traffic
     ArrayList incidents;
     String weather;
 
-    ArrayList<Traffic> trafficLocations;
+    ArrayList locationTraffic;
 
 
     //Constructors
-    public TrafficData(String location, List trafficLocations)
+    public TrafficData(String location, List lTraffic)
     {
-        super(location, trafficLocations);
+        super(location, lTraffic);
         time = LocalTime.now();
         date = LocalDate.now();
         incidents = new ArrayList();
@@ -27,19 +27,24 @@ public class TrafficData extends Traffic
 
     }
 
+    public TrafficData()
+    {
+        location = "";
+    }
+
     /*
         Getters and setters
      */
-    public int getIncidents(){return incidents.size();}
 
     public LocalTime getTime()
     {
         return time;
     }
 
+    //adds the time to the appropriate place in locationTraffic List
     public void setTime()
     {
-        LocalTime.now();
+        time = LocalTime.now();
     }
 
     public LocalDate getDate()
@@ -47,12 +52,13 @@ public class TrafficData extends Traffic
         return date;
     }
 
+    //also adds date to appropriate place in locationTraffic list
     public void setDate()
     {
-        LocalDate.now();
+        date = LocalDate.now();
     }
 
-    //use this method to test setWeather
+
     public String getWeather()
     {
         return weather;
@@ -60,8 +66,8 @@ public class TrafficData extends Traffic
 
 
     /*
-        This method will retrieve incidents from the locations csv file, add them to the incidents ArrayList
-        and return the ArrayList
+        This method will retrieve incidents from the locations csv file, add them to the incidents ArrayList and to the
+        trafficLocations List and return the ArrayList incidents
         precondition: file exists and is in the trafficLocations List
         postcondition: incidents have been added to the ArrayList and the ArrayList is returned
 
@@ -72,7 +78,7 @@ public class TrafficData extends Traffic
     }
 
     /*
-        Retrieves weather from location and sets it equal to the weather
+        Retrieves weather from location and sets it equal to the weather and adds it to locationTraffic list
         precondition: file exists and is in the trafficLocations List
         postconditions: weather has been retrieved from file and set equal to weather variable
      */
