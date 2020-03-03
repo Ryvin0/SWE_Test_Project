@@ -82,7 +82,7 @@ public class TestTrafficClass
     	
     }
     
-    // This is the start of the R2 Functionality test suite
+     // This is the start of the R2 Functionality test suite
 
     @Test
     public void testTrafficLocationsContainSearchedLocation() //This test to see if the correct location is returned when searched in the database
@@ -102,7 +102,7 @@ public class TestTrafficClass
         TrafficData t = new TrafficData();
         t.connect();
         t.retrieveTrafficInfo("Atlanta");
-        int incidents = t.getIncidents()
+        int incidents = t.getIncidents();
         assertEquals(1, incidents);
 
 
@@ -115,7 +115,7 @@ public class TestTrafficClass
         Traffic t = new Traffic();
         t.connect();
         t.retrieveTrafficInfo("Atlanta");
-        String locationName = t.getLocation()
+        String locationName = t.getLocation();
         assertEquals("Atlanta", locationName);
 
     }
@@ -126,7 +126,7 @@ public class TestTrafficClass
         TrafficData t = new TrafficData();
         t.connect();
         t.retrieveTrafficInfo("Atlanta");
-        String Weather = t.getWeather()
+        String Weather = t.getWeather();
         assertEquals("Sunny", Weather);
 
 
@@ -138,8 +138,9 @@ public class TestTrafficClass
         TrafficData t = new TrafficData();
         t.connect();
         t.retrieveTrafficInfo("Atlanta");
-        LocalDate date = t.getDate()
-        assertEquals(LocalDate = new(2020,03,02), date);
+        LocalDate date = t.getDate();
+        LocalDate expected = t.getDate();
+        assertEquals(expected, date);
 
     }
     @Test
@@ -150,9 +151,9 @@ public class TestTrafficClass
         t.retrieveTrafficInfo("Atlanta");
         String FileName = t.file.getName();
         int length = FileName.length();
-        int i = FileName.Lenth-1;
+        int i = FileName.length()-1;
         String Last3 = FileName.substring(i, i-3);
-        String wanted = "cvs";
+        String wanted = "csv";
 
         assertEquals(Last3, wanted);
 
@@ -164,7 +165,7 @@ public class TestTrafficClass
         TrafficData t = new TrafficData();
         t.connect();
         t.retrieveTrafficInfo("Atlanta");
-        int File = t.file.length();
+        Long File = t.file.length();
         boolean Correct = false;
         if(File > 0 )
         {
@@ -174,6 +175,6 @@ public class TestTrafficClass
 
 
     }
-    
-    
+
+
 }
