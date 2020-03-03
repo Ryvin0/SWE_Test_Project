@@ -46,9 +46,9 @@ public class TrafficData extends Traffic
     {
         time = LocalTime.now();
     }
-    
+
     public int getIncidents(){return incidents.size();}
-  
+
     public LocalDate getDate()
     {
         return date;
@@ -72,9 +72,8 @@ public class TrafficData extends Traffic
         trafficLocations List and return the ArrayList incidents
         precondition: file exists and is in the trafficLocations List
         postcondition: incidents have been added to the ArrayList and the ArrayList is returned
-
      */
-    public ArrayList setObstructions(ArrayList<Traffic> trafficLocations)
+    public ArrayList setObstructions()
     {
         return incidents;
     }
