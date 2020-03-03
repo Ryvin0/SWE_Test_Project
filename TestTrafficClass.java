@@ -12,6 +12,10 @@ public class TestTrafficClass
     //Global variables
     public List<Traffic> loc;
     
+    /*
+        Start of R1 Functionality Test Cases
+    */
+    
     //Test the connect() method of Traffic class
     @Test
     public void testConnect()
@@ -67,22 +71,6 @@ public class TestTrafficClass
     }
     
     
-    //Test to make sure trafficLocations contains searched location 
-    @Test
-    public void checkLocations() 
-    {
-
-
-    }
-    
-    //Test to make validate size of incidents 
-    @Test 
-    public void checkIncidents() 
-    { 
-    	
-    }
-    
-     // This is the start of the R2 Functionality test suite
 
     @Test
     public void testTrafficLocationsContainSearchedLocation() //This test to see if the correct location is returned when searched in the database

@@ -1,4 +1,3 @@
-//This is a test to see if you can pull my changes
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +7,6 @@ public class Traffic
     public String location;
     public List<Traffic> trafficLocations;
     public File file;
-
 
     //constructors
     public Traffic(String location, List<Traffic> tlocations)
@@ -37,10 +35,8 @@ public class Traffic
     }
 
 
-
-
     /*
-           Establishes a connection to the database containing CSV files with traffic confirmation
+           Establishes a connection to the database containing CSV files with traffic conformation
            Precondition: database is live and functioning
            Postcondition: return true if connection is successful, false otherwise
         */
@@ -50,12 +46,11 @@ public class Traffic
     }
 
     /*
-        Obtains the CSV file of the desired location from the database
+        Uses location variable to obtain the CSV file of the desired location from the database
         Precondition: Database is live and the file is in the database
-        Postcondition: The file is retrieved from the database and added into a list and returns the list. Returns NULL if 
-        file is not a valid CSV file with data. 
+        Postcondition: The file is retrieved from the database and added into a list and returns the list
      */
-    public List retrieveTrafficInfo(String location)
+    public List retrieveTrafficInfo()
     {
         return trafficLocations;
     }
@@ -66,10 +61,34 @@ public class Traffic
         Precondition: Database is live and a connection has been established
         Postcondition: Returns true if the file is in the database, false otherwise
      */
-    public boolean fileExists(String location)
+    public boolean fileExists()
     {
         return false;
     }
+
+
+    /*
+        Retrieves file from database and checks to see if it is Null
+        precondition: connection to database has been established
+        postcondition: true if file is NOT null, false otherwise
+     */
+
+    public boolean isFileNull()
+    {
+        return false;
+    }
+
+    /*
+        retrieves file from database and checks to see if it is empty
+        preconditions: connection to database has been established
+        postcondition: true if file is empty, false otherwise
+     */
+    public boolean isFileEmpty()
+    {
+        return true;
+    }
+
+
 
 
 }
